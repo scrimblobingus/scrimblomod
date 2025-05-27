@@ -5,7 +5,7 @@
 	"author": ["scrimblo bingus"], 
 	"description": "silly things for cryptid", 
 	"prefix": "scring", 
-	"main_file": "scrimblomod.lua", 
+	"main_file": "scrimblomod.lua",
 	"priority": 0, 
 	"badge_colour": "6800B3", 
 	"badge_text_colour": "FF009D", 
@@ -14,7 +14,7 @@
 	"dependencies": [
 		"Steamodded (>=1.*)", 
 		"Lovely (>=0.6)", 
-		"Cryptid (>=0.5.5b)"
+		"Cryptid (>=0.5.6)"
 	], 
 	"conflicts": [
 		

@@ -13,27 +13,38 @@ SMODS.Back {
         name = "Discord Deck",
         text = {
             "Start with a random {C:legendary}GC Member{}",
-            "All cards appear with an {C:edition}Edition{}",
+            "All cards appear with an {C:dark_edition}Edition{}",
         }
     },
     
     unlocked = true,
     discovered = true,
     no_collection = false,
-    config = {vouchers = {"v_hone", "v_glow_up"}},
+    config = {},
     order = 87,
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.jokers then
-                    --local gcgoer = add_card("gcmember", G.jokers, true, 4, false, false)
-                    SMODS.add_card("gcmember", G.jokers, true, 4, false, false)
-                    --gcgoer:add_to_deck()
-                    --gcgoer:start_materialize()
-                    --G.jokers:emplace(gcgoer)
+                    SMODS.add_card{set="gcmember", area=G.jokers}
                     return true
                 end
             end,
         }))
+
+
+        local card_update_ref = Card.update
+        function Card:update(dt)
+            if G.shop_jokers and G.shop_jokers.cards then
+                for k, v in pairs(G.shop_jokers.cards) do
+                    if not v.edition then
+                        v:set_edition(poll_edition(nil, nil, nil, true))
+                    end
+                end
+            end
+            card_update_ref(self, dt)
+            -- or here
+        end
+
     end
 }

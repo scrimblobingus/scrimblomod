@@ -18,10 +18,11 @@ SMODS.Joker {
     loc_txt = {
         name = "Jumbo Josh",
         text = {
-            "Gives {X:mult,C:white}X#1#{}",
+            "Gives {X:mult,C:white}X#1#{} Mult",
             "if hand contains a Jack."
         }
     },
+
     loc_vars = function(self, info_queue, center)
         return { vars = {center.ability.extra.Xmult}}
     end,
@@ -67,7 +68,7 @@ SMODS.Joker {
         name = "Robloxian",
         text = {
             "Gives {C:money}$#1#{}",
-            "when {C:edition}Foil{} card or",
+            "when {C:dark_edition}Foil{} card or",
             "joker is triggered.",
         }
     },
@@ -90,10 +91,18 @@ SMODS.Joker {
         if context.cardarea == G.play and context.individual then
             if context.other_card.edition and context.other_card.edition.foil == true then
                 return {
-                    message = "past of tooth!",
+                    message = "past of tooth?",
                     dollars = card.ability.extra.dollars
                 }
             end
         end
     end
 }
+
+SMODS.Atlas {
+    key = "mattatlas",
+    path = "mattjoker.png",
+    px = 71,
+    py = 95
+}
+
