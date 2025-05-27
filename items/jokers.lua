@@ -73,7 +73,7 @@ SMODS.Joker {
         }
     },
     rarity = 4,
-    cost = 12,
+    cost = 15,
     pools = {["gcmember"] = true},
     unlocked = true,
     discovered = true,
@@ -106,3 +106,50 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Joker {
+    key = "mattjoker",
+    name = "mattjoker",
+    atlas = "mattatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {Xmultamt = 0.5, Xmult = 0}},
+    loc_txt = {
+        name = "some guy",
+        text = {
+            "This joker gains {X:mult,C:white}X#1#{} Mult",
+            "whenever a {C:dark_edition}Holographic{}",
+            "card or joker is triggered.",
+            "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
+        }
+    },
+    rarity = 4,
+    cost = 15,
+    pools = {["gcmember"] = true},
+    unlocked = true,
+    discovered = true,
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Xmultamt, center.ability.extra.Xmult}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.other_joker and context.other_joker.edition and context.other_joker.edition.holographic == true then
+            card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmultamt
+            return {
+                message = "ENHANCE!"
+            }
+        end
+        if context.cardarea == G.play and context.individual then
+            if context.other_card.edition and context.other_card.edition.holographic == true then
+                card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmultamt
+                return {
+                    message = "ENHANCE!"
+                }
+            end
+        end
+        if context.joker_main and card.ability.extra.Xmult > 0 then
+            return {
+                message = "NO SCORING MESSAGE!",
+                Xmult_mod = card.ability.extra.Xmult
+            }
+        end
+    end
+}
