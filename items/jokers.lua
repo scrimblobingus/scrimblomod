@@ -109,7 +109,7 @@ SMODS.Joker {
         text = {
             "This joker gains {X:mult,C:white}X#1#{} Mult",
             "whenever a {C:dark_edition}Holographic{}",
-            "oker is triggered.",
+            "joker is triggered.",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
         }
     },
