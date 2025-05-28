@@ -63,12 +63,12 @@ SMODS.Joker {
     name = "racejoker",
     atlas = "raceatlas",
     pos = {x = 0, y = 0},
-    config = {extra = {dollars = 5}},
+    config = {extra = {dollars = 1}},
     loc_txt = {
         name = "Robloxian",
         text = {
             "Gives {C:money}$#1#{}",
-            "when {C:dark_edition}Foil{} card or",
+            "when {C:dark_edition}Foil{}",
             "joker is triggered.",
         }
     },
@@ -88,14 +88,6 @@ SMODS.Joker {
                 dollars = card.ability.extra.dollars
             }
         end
-        if context.cardarea == G.play and context.individual then
-            if context.other_card.edition and context.other_card.edition.foil == true then
-                return {
-                    message = "past of tooth?",
-                    dollars = card.ability.extra.dollars
-                }
-            end
-        end
     end
 }
 
@@ -111,13 +103,13 @@ SMODS.Joker {
     name = "mattjoker",
     atlas = "mattatlas",
     pos = {x = 0, y = 0},
-    config = {extra = {Xmultamt = 0.5, Xmult = 0}},
+    config = {extra = {Xmultamt = 0.5, Xmult = 1}},
     loc_txt = {
         name = "some guy",
         text = {
             "This joker gains {X:mult,C:white}X#1#{} Mult",
             "whenever a {C:dark_edition}Holographic{}",
-            "card or joker is triggered.",
+            "oker is triggered.",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
         }
     },
@@ -131,20 +123,13 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.other_joker and context.other_joker.edition and context.other_joker.edition.holographic == true then
+        if context.other_joker and context.other_joker.edition and context.other_joker.edition.holo == true then
             card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmultamt
             return {
                 message = "ENHANCE!"
             }
         end
-        if context.cardarea == G.play and context.individual then
-            if context.other_card.edition and context.other_card.edition.holographic == true then
-                card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmultamt
-                return {
-                    message = "ENHANCE!"
-                }
-            end
-        end
+
         if context.joker_main and card.ability.extra.Xmult > 0 then
             return {
                 message = "NO SCORING MESSAGE!",
