@@ -187,18 +187,18 @@ SMODS.Joker {
     unlocked = true,
     discovered = true,
     loc_vars = function(self, info_queue, center)
-        return {vars = {center.ability.extra.chips, center.ability.extra.Xchips, G.GAME.probabilties.normal or 1, center.ability.extra.odds, center.ability.extra.Xodds}}
+        return {vars = {center.ability.extra.chips, center.ability.extra.Xchips, G.GAME.probabilities.normal or 1, center.ability.extra.odds, center.ability.extra.Xodds}}
     end,
 
     calculate = function(self, card, context)
         if context.other_joker and context.other_joker.edition and context.other_joker.edition.polychrome == true then
-            if pseudorandom("oakchips") < G.GAME.probabilties.normal / card.ability.extra.odds then
+            if pseudorandom("oakchips") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     message = "jolly!",
                     chips = card.ability.extra.chips
                 }
             end
-            if pseudorandom("oakxchips") < G.GAME.probabilties.normal / card.ability.extra.Xodds then
+            if pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
                 return {
                     message = "jollier!",
                     Xchip_mod = card.ability.extra.Xchips
@@ -208,13 +208,13 @@ SMODS.Joker {
 
         if context.individual and context.cardarea == G.play then
             if context.other_card.edition and context.other_card.edition.polychrome == true then
-                if pseudorandom("oakchips") < G.GAME.probabilties.normal / card.ability.extra.odds then
+                if pseudorandom("oakchips") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     return {
                         message = "jolly!",
                         chips = card.ability.extra.chips
                     }
                 end
-                if pseudorandom("oakxchips") < G.GAME.probabilties.normal / card.ability.extra.Xodds then
+                if pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
                     return {
                         message = "jollier!",
                         Xchip_mod = card.ability.extra.Xchips

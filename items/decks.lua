@@ -5,9 +5,16 @@ SMODS.Atlas {
     py = 190
 }
 
+SMODS.Atlas {
+    key = "discordatlas",
+    path = "discord.png",
+    px = 69,
+    py = 93
+}
+
 SMODS.Back {
     key = "discordeck",
-    atlas = "debugatlas",
+    atlas = "discordatlas",
     pos = {x = 0, y = 0},
     loc_txt = {
         name = "Discord Deck",
