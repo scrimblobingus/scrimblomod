@@ -8,6 +8,7 @@ if CardSleeves then
     CardSleeves.Sleeve {
         key = "discordsleeve",
         atlas = "sleeveatlas",
-        pos = {x = 0, y = 0}
+        pos = {x = 0, y = 0},
+        
     }
 end

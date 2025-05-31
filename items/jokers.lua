@@ -195,14 +195,17 @@ SMODS.Joker {
             if pseudorandom("oakchips") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     message = "jolly!",
-                    chips = card.ability.extra.chips
+                    chips = card.ability.extra.chips,
+                    extra = pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds and {
+                        message = "jollier!",
+                        Xchip_mod = card.ability.extra.Xchips
+                    } or nil
                 }
-            end
-            if pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
-                return {
-                    message = "jollier!",
-                    Xchip_mod = card.ability.extra.Xchips
-                }
+                elseif pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
+                    return {
+                        message = "jollier!",
+                        Xchip_mod = card.ability.extra.Xchips
+                    }
             end
         end
 
@@ -211,14 +214,17 @@ SMODS.Joker {
                 if pseudorandom("oakchips") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     return {
                         message = "jolly!",
-                        chips = card.ability.extra.chips
+                        chips = card.ability.extra.chips,
+                        extra = pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds and {
+                            message = "jollier!",
+                            Xchip_mod = card.ability.extra.Xchips
+                        } or nil
                     }
-                end
-                if pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
-                    return {
-                        message = "jollier!",
-                        Xchip_mod = card.ability.extra.Xchips
-                    }
+                    elseif pseudorandom("oakxchips") < G.GAME.probabilities.normal / card.ability.extra.Xodds then
+                        return {
+                            message = "jollier!",
+                            Xchip_mod = card.ability.extra.Xchips
+                        }
                 end
             end
         end
