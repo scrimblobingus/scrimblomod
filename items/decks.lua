@@ -20,7 +20,7 @@ SMODS.Back {
         name = "Discord Deck",
         text = {
             "Start with a random {C:legendary}GC Member{}",
-            "All cards appear with an {X:dark_edition,C:edition,E:1}Edition{}",
+            "All cards appear with an {C:dark_edition,E:1}Edition{}",
         }
     },
     

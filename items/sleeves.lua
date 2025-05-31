@@ -5,5 +5,9 @@ SMODS.Atlas {
     py = 95
 }
 if CardSleeves then
-    --i'll do this later
+    CardSleeves.Sleeve {
+        key = "discordsleeve",
+        atlas = "sleeveatlas",
+        pos = {x = 0, y = 0}
+    }
 end
