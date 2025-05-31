@@ -45,7 +45,12 @@ SMODS.Back {
             if G.shop_jokers and G.shop_jokers.cards then
                 for k, v in pairs(G.shop_jokers.cards) do
                     if not v.edition then
-                        v:set_edition(poll_edition(nil, nil, nil, true))
+                        v:set_edition(poll_edition(nil, nil, false, true, {
+                            {name = 'e_foil', weight = 1,},
+                            {name = 'e_holo', weight = 1,},
+                            {name = 'e_polychrome', weight = 1,},
+                            {name = 'e_negative', weight = 1,}
+                        }))
                     end
                 end
             end
