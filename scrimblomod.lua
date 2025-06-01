@@ -1,3 +1,9 @@
+--enable optional contexts
+SMODS.current_mod.optional_features = {
+  retrigger_joker = true,
+  cardareas = true
+}
+
 --gc member pool
 SMODS.ObjectType({
     key = "gcmember",

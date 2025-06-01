@@ -1,3 +1,4 @@
+--atlas
 SMODS.Atlas {
     key = "jumboatlas",
     path = "jumbojosh.png",
@@ -226,6 +227,53 @@ SMODS.Joker {
                             Xchip_mod = card.ability.extra.Xchips
                         }
                 end
+            end
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "scrimbloatlas",
+    path = "scrimblojoker.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "scrimblojoker",
+    name = "scrimblojoker",
+    atlas = "scrimbloatlas",
+    pos = {x = 0, y = 0},
+    config = {},
+    rarity = 4,
+    cost = 15,
+    pools = {["gcmember"] = true},
+    loc_txt = {
+        name = "{C:dark_edition,E:2}scrimblo bingus{}",
+        text  ={
+            "{C:attention}Retrigger{} all {C:dark_edition}Negative{}",
+            "cards and jokers.",
+            "{C:inactive,s:0.8}the one and only{}"
+        }
+    },
+    calculate = function(self, card, context)
+        if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
+            if context.other_card.edition and context.other_card.edition.negative == true then
+                return {
+                    message = "again!",
+                    repetitions = 1,
+                    card = card
+                }
+            end
+        end
+
+        if context.repetition and context.cardarea == G.play then
+            if context.other_card.edition and context.other_card.edition.negative == true then
+                return {
+                    message = "again!",
+                    repetitions = 1,
+                    card = card
+                }
             end
         end
     end

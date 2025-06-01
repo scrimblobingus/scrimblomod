@@ -55,7 +55,6 @@ SMODS.Back {
                 end
             end
             card_update_ref(self, dt)
-            -- or here
         end
 
     end
