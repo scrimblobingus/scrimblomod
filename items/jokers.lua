@@ -62,7 +62,7 @@ SMODS.Joker {
     name = "mattjoker",
     atlas = "mattatlas",
     pos = {x = 0, y = 0},
-    config = {extra = {Xmultamt = 0.5, Xmult = 1}},
+    config = {extra = {Xmultamt = 0.25, Xmult = 1}},
     loc_txt = {
         name = "some guy",
         text = {
