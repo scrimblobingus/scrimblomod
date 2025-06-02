@@ -30,14 +30,29 @@ SMODS.Back {
     config = {},
     order = 87,
     apply = function(self, back)
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                if G.jokers then
-                    SMODS.add_card{set="gcmember", area=G.jokers}
-                    return true
+        if G.GAME.selected_sleeve == "sleeve_scring_discordsleeve" then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    if G.jokers then
+                        SMODS.add_card{set="gcmember", area=G.jokers, key="j_scring_racejoker", edition="e_foil"}
+                        SMODS.add_card{set="gcmember", area=G.jokers, key="j_scring_mattjoker", edition="e_holo"}
+                        SMODS.add_card{set="gcmember", area=G.jokers, key="j_scring_oakjoker", edition="e_polychrome"}
+                        SMODS.add_card{set="gcmember", area=G.jokers, key="j_scring_scrimblojoker", edition="e_negative"}
+                        return true
+                    end
                 end
-            end,
-        }))
+            }))
+        else
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    if G.jokers then
+                        SMODS.add_card{set="gcmember", area=G.jokers}
+                        return true
+                    end
+                end
+            }))
+        end
+
 
 
         local card_update_ref = Card.update
