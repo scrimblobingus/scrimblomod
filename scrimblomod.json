@@ -13,8 +13,8 @@
 	"version": "0.1.0", 
 	"dependencies": [
 		"Steamodded (>=1.*)", 
-		"Lovely (>=0.6)", 
-		"Cryptid (>=0.5.6)"
+		"Lovely (>=0.8)", 
+		"Cryptid (>=0.5.7)"
 	], 
 	"conflicts": [
 		
