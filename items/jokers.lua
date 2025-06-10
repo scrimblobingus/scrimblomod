@@ -227,3 +227,44 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Atlas {
+    key = "foneatlas",
+    path = "tmobile.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker{
+    key = "selfone",
+    name = "selfone",
+    atlas = "foneatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {dollars = 5}},
+    unlocked = true,
+    discovered = true,
+    no_collection = false,
+    rarity = "cry_epic",
+    cost = 7,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    loc_txt = {
+        name = "sel fone",
+        text = {
+            "Earn {C:money}$#1#{} whenever a {C:cry_code}Code{} card is used."
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.dollars}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.using_consumeable then
+            return {
+                message = "lods of emone",
+                dollars = card.ability.extra.dollars
+            }
+        end
+    end
+}
