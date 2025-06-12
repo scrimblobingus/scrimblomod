@@ -10,11 +10,11 @@
 	"badge_colour": "6800B3", 
 	"badge_text_colour": "FF009D", 
 	"display_name": "scrimblo mod", 
-	"version": "0.1.0", 
+	"version": "0.2.0", 
 	"dependencies": [
 		"Steamodded (>=1.*)", 
 		"Lovely (>=0.8)", 
-		"Cryptid (>=0.5.7)"
+		"Cryptid (>=0.5.8)"
 	], 
 	"conflicts": [
 		

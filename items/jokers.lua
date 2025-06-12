@@ -335,3 +335,51 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Atlas {
+    key = "zazuatlas",
+    path = "zazu.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "zazu",
+    name = "zazu",
+    atlas = "zazuatlas",
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 0},
+    config = {extra = {Echips = 87, Emult = 87, dollars = 87}},
+    unlocked = true,
+    discovered = false,
+    rarity = "cry_exotic",
+    cost = 87,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = false,
+    loc_txt = {
+        name = "{C:edition,e:1}zazu{}",
+        text = {
+            "{X:dark_edition,C:white}^#1#{} Chips",
+            "{X:dark_edition,C:white}^#2#{} Mult",
+            "Earn {C:money}$#3# at end of round"
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Echips, center.ability.extra.Emult, center.ability.extra.dollars}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                message = "melon",
+                Echips_mod = card.ability.extra.Echips,
+                Emult_mod = card.ability.extra.Emult
+            }
+        end
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars
+    end
+}

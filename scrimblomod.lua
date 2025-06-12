@@ -15,8 +15,8 @@ SMODS.ObjectType({
 })
 
 
-
 --load files
 assert(SMODS.load_file("items/jokers.lua"))()
+assert(SMODS.load_file("items/consumables.lua"))()
 assert(SMODS.load_file("items/decks.lua"))()
 assert(SMODS.load_file("items/sleeves.lua"))()
