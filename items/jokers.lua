@@ -17,7 +17,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Robloxian",
         text = {
-            "Gives {C:money}$#1#{}",
+            "Earn {C:money}$#1#{}",
             "when {C:dark_edition}Foil{}",
             "card orjoker is triggered.",
         }
@@ -27,6 +27,9 @@ SMODS.Joker {
     pools = {["gcmember"] = true},
     unlocked = true,
     discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.dollars}}
     end,
@@ -66,7 +69,7 @@ SMODS.Joker {
     loc_txt = {
         name = "some guy",
         text = {
-            "This joker gains {X:mult,C:white}X#1#{} Mult",
+            "Gains {X:mult,C:white}X#1#{} Mult",
             "whenever a {C:dark_edition}Holographic{}",
             "card joker is triggered.",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
@@ -77,6 +80,9 @@ SMODS.Joker {
     pools = {["gcmember"] = true},
     unlocked = true,
     discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.Xmultamt, center.ability.extra.Xmult}}
     end,
@@ -136,6 +142,11 @@ SMODS.Joker {
     pools = {["gcmember"] = true},
     unlocked = true,
     discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    display_size = { w = 71, h = 95 },
+    pixel_size = { w = 71, h = 95 },
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.chips, center.ability.extra.Xchips, G.GAME.probabilities.normal or 1, center.ability.extra.odds, center.ability.extra.Xodds}}
     end,
@@ -264,6 +275,62 @@ SMODS.Joker{
             return {
                 message = "lods of emone",
                 dollars = card.ability.extra.dollars
+            }
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "onyxatlas",
+    path = "onyx.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "onyxjoker",
+    name = "onyxjoker",
+    atlas = "onyxatlas",
+    pos = {x = 0, y = 0},
+    unlocked = true,
+    discovered = true,
+    rarity = "cry_epic",
+    cost = 12,
+    config = {extra = {Xmult = 0.75}},
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = false,
+    loc_txt = {
+        name = "Onyx",
+        text = {
+            "Create a {C:dark_edition}Negative Tag{}",
+            "when {C:attention}Blind{} is selected.",
+            "{X:mult,C:white}X#1#{} Mult"
+        }
+    },
+
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Xmult}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    add_tag(Tag('tag_negative'))
+                    play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                    return true
+                end
+            }))
+            return {
+                message = "A gift."
+            }
+        end
+
+        if context.joker_main then
+            return {
+                message = "An ailment.",
+                Xmult_mod = card.ability.extra.Xmult
             }
         end
     end
