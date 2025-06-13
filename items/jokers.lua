@@ -19,7 +19,7 @@ SMODS.Joker {
         text = {
             "Earn {C:money}$#1#{}",
             "when {C:dark_edition}Foil{}",
-            "card orjoker is triggered.",
+            "card or joker is triggered.",
         }
     },
     rarity = 4,
@@ -71,7 +71,7 @@ SMODS.Joker {
         text = {
             "Gains {X:mult,C:white}X#1#{} Mult",
             "whenever a {C:dark_edition}Holographic{}",
-            "card joker is triggered.",
+            "card or joker is triggered.",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
         }
     },
