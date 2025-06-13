@@ -362,7 +362,7 @@ SMODS.Joker {
         text = {
             "{X:dark_edition,C:white}^#1#{} Chips",
             "{X:dark_edition,C:white}^#2#{} Mult",
-            "Earn {C:money}$#3# at end of round"
+            "Earn {C:money}$#3#{} at end of round"
         }
     },
     loc_vars = function(self, info_queue, center)
