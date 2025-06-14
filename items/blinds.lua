@@ -25,7 +25,7 @@ SMODS.Blind {
 
     set_blind = function(self)
         if #SMODS.find_card("j_scring_racejoker") > 0 then
-            forceGameover()
+            fuckYou()
         end
     end
 }
