@@ -1,17 +1,14 @@
-
 SMODS.Atlas {
-    key = "raceatlas",
-    path = "racejoker.png",
+    key = "gcatlas",
+    path = "gcatlas.png",
     px = 71,
     py = 95
 }
 
-
-
 SMODS.Joker {
     key = "racejoker",
     name = "racejoker",
-    atlas = "raceatlas",
+    atlas = "gcatlas",
     pos = {x = 0, y = 0},
     config = {extra = {dollars = 5}},
     loc_txt = {
@@ -53,18 +50,11 @@ SMODS.Joker {
     end
 }
 
-SMODS.Atlas {
-    key = "mattatlas",
-    path = "mattjoker.png",
-    px = 71,
-    py = 95
-}
-
 SMODS.Joker {
     key = "mattjoker",
     name = "mattjoker",
-    atlas = "mattatlas",
-    pos = {x = 0, y = 0},
+    atlas = "gcatlas",
+    pos = {x = 1, y = 0},
     config = {extra = {Xmultamt = 0.25, Xmult = 1}},
     loc_txt = {
         name = "some guy",
@@ -115,18 +105,11 @@ SMODS.Joker {
     end
 }
 
-SMODS.Atlas {
-    key = "oakatlas",
-    path = "oakjoker.png",
-    px = 213,
-    py = 285
-}
-
 SMODS.Joker {
     key = "oakjoker",
     name = "oakjoker",
-    atlas = "oakatlas",
-    pos = {x = 0, y = 0},
+    atlas = "gcatlas",
+    pos = {x = 3, y = 0},
     config = {extra = {chips = 100, Xchips = 2, odds = 2, Xodds = 6}},
     loc_txt = {
         name = "zombieman6475",
@@ -192,18 +175,11 @@ SMODS.Joker {
     end
 }
 
-SMODS.Atlas {
-    key = "scrimbloatlas",
-    path = "scrimblojoker.png",
-    px = 71,
-    py = 95
-}
-
 SMODS.Joker {
     key = "scrimblojoker",
     name = "scrimblojoker",
-    atlas = "scrimbloatlas",
-    pos = {x = 0, y = 0},
+    atlas = "gcatlas",
+    pos = {x = 4, y = 0},
     config = {},
     rarity = 4,
     cost = 15,
@@ -255,7 +231,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     no_collection = false,
-    rarity = "cry_epic",
+    rarity = 2,
     cost = 7,
     blueprint_compat = true,
     eternal_compat = true,
