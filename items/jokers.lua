@@ -23,7 +23,6 @@ SMODS.Joker {
     cost = 15,
     pools = {["gcmember"] = true},
     unlocked = true,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -69,7 +68,6 @@ SMODS.Joker {
     cost = 15,
     pools = {["gcmember"] = true},
     unlocked = true,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -124,7 +122,6 @@ SMODS.Joker {
     cost = 15,
     pools = {["gcmember"] = true},
     unlocked = true,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -229,7 +226,6 @@ SMODS.Joker{
     pos = {x = 0, y = 0},
     config = {extra = {dollars = 5}},
     unlocked = true,
-    discovered = true,
     no_collection = false,
     rarity = 2,
     cost = 7,
@@ -269,7 +265,6 @@ SMODS.Joker {
     atlas = "onyxatlas",
     pos = {x = 0, y = 0},
     unlocked = true,
-    discovered = true,
     rarity = "cry_epic",
     cost = 12,
     config = {extra = {Xmult = 0.75}},
@@ -357,5 +352,102 @@ SMODS.Joker {
 
     calc_dollar_bonus = function(self, card)
         return card.ability.extra.dollars
+    end
+}
+
+SMODS.Atlas {
+    key = "speakeratlas",
+    path = "drivethru.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "speaker",
+    name = "speaker",
+    atlas = "speakeratlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {Xmult = 2}},
+    unlocked = true,
+    rarity = 2,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    loc_txt = {
+        name = "Drive Thru Speaker",
+        text = {
+            "{X:mult,C:white}X#1#{} Mult if hand contains a",
+            "6 and a 7",
+            '{C:inactive,s:0.8}isnt it your bedtime, {}{C:attention,s:0.8}Unc?{}'
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Xmult}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local has6 = false
+            local has7 = false
+            for i = 1, #context.scoring_hand do
+                if context.full_hand[i]:get_id() == 6 then
+                    has6 = true
+                end
+
+                if context.full_hand[i]:get_id() == 7 then
+                    has7 = true
+                end
+            end
+            if has6 == true and has7 == true then
+                return {
+                    message = "$67.67",
+                    Xmult_mod = card.ability.extra.Xmult
+                }
+            end
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "houseatlas",
+    path = "house.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "house",
+    name = "house",
+    atlas = "houseatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {type = "Full House"}},
+    unlocked = true,
+    rarity = 3,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    loc_txt = {
+        name = "Dr. House",
+        text = {
+            "Create a random {C:attention}Consumable{}",
+            "if played poker hand is a {C:attention}Full House{}"
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.joker_main and next(context.poker_hands[card.ability.extra.type]) then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card{set="Consumeables", area=G.consumeables, no_edition=true}
+                    return true
+                end
+            }))
+
+            return {
+                message = "did you try the medicine drug"
+            }
+        end
     end
 }
