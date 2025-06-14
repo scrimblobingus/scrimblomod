@@ -109,7 +109,7 @@ SMODS.Joker {
     key = "oakjoker",
     name = "oakjoker",
     atlas = "gcatlas",
-    pos = {x = 3, y = 0},
+    pos = {x = 2, y = 0},
     config = {extra = {chips = 100, Xchips = 2, odds = 2, Xodds = 6}},
     loc_txt = {
         name = "zombieman6475",
@@ -179,7 +179,7 @@ SMODS.Joker {
     key = "scrimblojoker",
     name = "scrimblojoker",
     atlas = "gcatlas",
-    pos = {x = 4, y = 0},
+    pos = {x = 3, y = 0},
     config = {},
     rarity = 4,
     cost = 15,
