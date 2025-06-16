@@ -66,3 +66,41 @@ SMODS.Consumable {
         return next(SMODS.Edition:get_edition_cards(G.jokers, true))
     end
 }
+
+SMODS.Atlas {
+    key = "hatlas",
+    path = "htarot.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Consumable {
+    key = "h",
+    set = "Tarot",
+    atlas = "hatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {dollars = 5}},
+    loc_txt = {
+        name = "H",
+        text = {
+            "{C:edition,e:1}yeah{}"
+        }
+    },
+
+    use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = "after",
+            delay = 0.4,
+            func = function()
+                play_sound("timpani")
+                card:juice_up(0.3, 0.5)
+                ease_dollars(card.ability.extra.dollars, true)
+            end
+        }))
+        delay(0.6)
+    end,
+
+    can_use = function(self, card)
+        return true
+    end
+}

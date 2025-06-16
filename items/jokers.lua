@@ -10,7 +10,7 @@ SMODS.Joker {
     name = "racejoker",
     atlas = "gcatlas",
     pos = {x = 0, y = 0},
-    config = {extra = {dollars = 5}},
+    config = {extra = {dollars = 10}},
     loc_txt = {
         name = "Robloxian",
         text = {
@@ -20,8 +20,8 @@ SMODS.Joker {
         }
     },
     rarity = 4,
-    cost = 15,
-    pools = {["gcmember"] = true},
+    cost = 20,
+    pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -65,8 +65,8 @@ SMODS.Joker {
         }
     },
     rarity = 4,
-    cost = 15,
-    pools = {["gcmember"] = true},
+    cost = 20,
+    pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -108,7 +108,7 @@ SMODS.Joker {
     name = "oakjoker",
     atlas = "gcatlas",
     pos = {x = 2, y = 0},
-    config = {extra = {chips = 100, Xchips = 2, odds = 2, Xodds = 6}},
+    config = {extra = {chips = 200, Xchips = 3, odds = 2, Xodds = 6}},
     loc_txt = {
         name = "zombieman6475",
         text = {
@@ -119,8 +119,8 @@ SMODS.Joker {
         }
     },
     rarity = 4,
-    cost = 15,
-    pools = {["gcmember"] = true},
+    cost = 20,
+    pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -179,8 +179,8 @@ SMODS.Joker {
     pos = {x = 3, y = 0},
     config = {},
     rarity = 4,
-    cost = 15,
-    pools = {["gcmember"] = true},
+    cost = 20,
+    pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
     loc_txt = {
         name = "{C:dark_edition,E:2}scrimblo bingus{}",
         text  ={
@@ -232,6 +232,7 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {["scrimbloaddition"] = true},
     loc_txt = {
         name = "sel fone",
         text = {
@@ -271,6 +272,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
+    pools = {["scrimbloaddition"] = true},
     loc_txt = {
         name = "Onyx",
         text = {
@@ -328,6 +330,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
+    pools = {["scrimbloaddition"] = true},
     loc_txt = {
         name = "{C:edition,e:1}zazu{}",
         text = {
@@ -367,13 +370,14 @@ SMODS.Joker {
     name = "speaker",
     atlas = "speakeratlas",
     pos = {x = 0, y = 0},
-    config = {extra = {Xmult = 2}},
+    config = {extra = {Xmult = 3}},
     unlocked = true,
     rarity = 2,
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {["scrimbloaddition"] = true},
     loc_txt = {
         name = "Drive Thru Speaker",
         text = {
@@ -428,6 +432,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {["scrimbloaddition"] = true},
     loc_txt = {
         name = "Dr. House",
         text = {
@@ -447,6 +452,100 @@ SMODS.Joker {
 
             return {
                 message = "did you try the medicine drug"
+            }
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "maskatlas",
+    path = "mask.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "mask",
+    name = "mask",
+    atlas = "maskatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {joker_slots = 3, odds = 15}},
+    unlocked = true,
+    rarity = "cry_epic",
+    cost = 11,
+    blueprint_compat = false,
+    eternal_compat = false,
+    perishable_compat = false,
+    pools = {["scrimbloaddition"] = true},
+    loc_txt = {
+        name = "The Mask",
+        text = {
+            "{C:attention}+#1#{} Joker slots",
+            "{C:green}#2# in #3#{} chance of {C:attention}crashing{}",
+            "the game when blind is selected."
+        }
+    },
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.joker_slots, G.GAME.probabilities.normal, center.ability.extra.odds}}
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.joker_slots
+    end,
+    
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.blueprint then
+            if pseudorandom("maskdestroy") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                somebodystopme()
+            end
+        end
+
+
+    end
+}
+
+SMODS.Atlas {
+    key = "antonatlas",
+    path = "anton.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "anton",
+    name = "anton",
+    atlas = "antonatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {repetitions = 1}},
+    unlocked = true,
+    rarity = "cry_epic",
+    cost = 14,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    pools = {["scrimbloaddition"] = true},
+    loc_txt = {
+        name = "Anton Ego",
+        text = {
+            "{C:attention}Retigger{} all played cards",
+            "{C:attention}#1#{} time(s)"
+        }
+    },
+
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.repetitions}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play then
+            return {
+                message = "flashback",
+                repetitions = card.ability.extra.repetitions,
+                card = card
             }
         end
     end

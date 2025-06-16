@@ -25,6 +25,7 @@ SMODS.Blind {
 
     set_blind = function(self)
         if #SMODS.find_card("j_scring_racejoker") > 0 then
+            --this function doesn't exist and thus causes a crash
             fuckYou()
         end
     end
