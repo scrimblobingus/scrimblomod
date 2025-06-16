@@ -1,26 +1,23 @@
-{ "frames": {
-   "gcatlas.ase": {
-    "frame": { "x": 0, "y": 0, "w": 284, "h": 95 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 284, "h": 95 },
-    "sourceSize": { "w": 284, "h": 95 },
-    "duration": 100
-   }
- },
- "meta": {
-  "app": "http://www.aseprite.org/",
-  "version": "1.3.14.2-x64",
-  "image": "gcatlas.png",
-  "format": "RGBA8888",
-  "size": { "w": 284, "h": 95 },
-  "scale": "1",
-  "frameTags": [
-  ],
-  "layers": [
-   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
-  ],
-  "slices": [
-  ]
- }
+{
+  "frames": {
+    "gcatlas.ase": {
+      "frame": { "x": 0, "y": 0, "w": 284, "h": 95 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 284, "h": 95 },
+      "sourceSize": { "w": 284, "h": 95 },
+      "duration": 100
+    }
+  },
+  "meta": {
+    "app": "http://www.aseprite.org/",
+    "version": "1.3.14.2-x64",
+    "image": "gcatlas.png",
+    "format": "RGBA8888",
+    "size": { "w": 284, "h": 95 },
+    "scale": "1",
+    "frameTags": [],
+    "layers": [{ "name": "Layer 1", "opacity": 255, "blendMode": "normal" }],
+    "slices": []
+  }
 }
