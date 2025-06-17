@@ -57,9 +57,9 @@ SMODS.Back {
 
         local card_update_ref = Card.update
         function Card:update(dt)
-            if G.shop_jokers and G.shop_jokers.cards then
+            if G.shop_jokers and G.shop_jokers.cards  then
                 for k, v in pairs(G.shop_jokers.cards) do
-                    if not v.edition then
+                    if not v.edition and G.GAME and G.GAME.selected_back and G.GAME.selected_back.effect.center.key == 'b_scring_discordeck' then
                         v:set_edition(poll_edition(nil, nil, false, true, {
                             {name = 'e_foil', weight = 1,},
                             {name = 'e_holo', weight = 1,},

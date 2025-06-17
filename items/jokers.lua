@@ -244,7 +244,7 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if context.using_consumeable then
+        if context.using_consumeable and context.consumeable.ability.set == "Code" then
             return {
                 message = "lods of emone",
                 dollars = card.ability.extra.dollars

@@ -10,7 +10,6 @@ SMODS.Booster {
     atlas = "discordpackatlas",
     pos = {x = 0, y = 0},
     config = {extra = 4, choose = 1},
-    group_key = "dihpack",
     cost = 15,
     weight = 0.18,
     draw_hand = false,
@@ -54,7 +53,6 @@ SMODS.Booster {
     atlas = "scrimblopackatlas",
     pos = {x = 0, y = 0},
     config = {extra = 2, choose = 1},
-    group_key = "scrimblopack",
     cost = 4,
     weight = 1,
     select_card = "jokers",
@@ -63,7 +61,8 @@ SMODS.Booster {
         name = "scrimblo pack",
         text = {
             "Choose {C:attention}#1#{} of up to {C:attention}#2#{} scrimblo mod Jokers"
-        }
+        },
+        group_name = "scrimblo pack"
     },
     
     loc_vars = function(self, info_queue, card)
@@ -97,7 +96,6 @@ SMODS.Booster {
     atlas = "jumboscrimblopackatlas",
     pos = {x = 0, y = 0},
     config = {extra = 4, choose = 1},
-    group_key = "scrimblopack",
     cost = 6,
     weight = 0.66,
     select_card = "jokers",
@@ -106,7 +104,8 @@ SMODS.Booster {
         name = "jumbo scrimblo pack",
         text = {
             "Choose {C:attention}#1#{} of up to {C:attention}#2#{} scrimblo mod Jokers"
-        }
+        },
+        group_name = "scrimblo pack"
     },
     
     loc_vars = function(self, info_queue, card)
@@ -139,8 +138,6 @@ SMODS.Booster {
     key = "megascrimblopack",
     atlas = "megascrimblopackatlas",
     pos = {x = 0, y = 0},
-    config = {extra = 4, choose = 2},
-    group_key = "scrimblopack",
     cost = 6,
     weight = 0.33,
     select_card = "jokers",
@@ -149,7 +146,8 @@ SMODS.Booster {
         name = "mega scrimblo pack",
         text = {
             "Choose {C:attention}#1#{} of up to {C:attention}#2#{} scrimblo mod Jokers"
-        }
+        },
+        group_name = "scrimblo pack"
     },
     
     loc_vars = function(self, info_queue, card)
