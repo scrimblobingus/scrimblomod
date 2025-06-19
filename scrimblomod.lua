@@ -14,6 +14,16 @@ SMODS.ObjectType({
     end,
 })
 
+--scrimblo addition normal pool
+SMODS.ObjectType({
+  key = "normalscring",
+  default = "j_scring_selfone",
+  cards = {},
+  inject = function(self)
+    SMODS.ObjectType.inject(self)
+  end
+})
+
 --scrimblo addition pool
 SMODS.ObjectType({
   key = "scrimbloaddition",
@@ -31,3 +41,5 @@ assert(SMODS.load_file("items/blinds.lua"))()
 assert(SMODS.load_file("items/decks.lua"))()
 assert(SMODS.load_file("items/sleeves.lua"))()
 assert(SMODS.load_file("items/packs.lua"))()
+assert(SMODS.load_file("items/fusions.lua"))()
+assert(SMODS.load_file("items/editions.lua"))()

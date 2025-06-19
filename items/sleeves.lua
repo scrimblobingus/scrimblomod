@@ -33,22 +33,26 @@ if CardSleeves then
                     end
                 }))
                 
-                local card_update_ref = Card.update
-                function Card:update(dt)
-                    if G.shop_jokers and G.shop_jokers.cards then
-                        for k, v in pairs(G.shop_jokers.cards) do
-                            if not v.edition then
-                                v:set_edition(poll_edition(nil, nil, false, true, {
-                                    {name = 'e_foil', weight = 1,},
-                                    {name = 'e_holo', weight = 1,},
-                                    {name = 'e_polychrome', weight = 1,},
-                                    {name = 'e_negative', weight = 1,}
-                                }))
+                
+                if G.GAME.selected_sleeve == "sleeve_scring_discordsleeve" then
+                    local card_update_ref = Card.update
+                    function Card:update(dt)
+                        if G.shop_jokers and G.shop_jokers.cards then
+                            for k, v in pairs(G.shop_jokers.cards) do
+                                if not v.edition and G.GAME.selected_sleeve == "sleeve_scring_discordsleeve" then
+                                    v:set_edition(poll_edition(nil, nil, false, true, {
+                                        {name = 'e_foil', weight = 1,},
+                                        {name = 'e_holo', weight = 1,},
+                                        {name = 'e_polychrome', weight = 1,},
+                                        {name = 'e_negative', weight = 1,}
+                                    }))
+                                end
                             end
                         end
+                        card_update_ref(self, dt)
                     end
-                    card_update_ref(self, dt)
                 end
+
             end
         end,
 

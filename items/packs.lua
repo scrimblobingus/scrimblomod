@@ -72,7 +72,7 @@ SMODS.Booster {
     create_card = function(self, card, i)
         ease_background_colour(HEX("a742f5"))
         return SMODS.create_card{
-            set = "scrimbloaddition",
+            set = "normalscring",
             area = G.pack_cards,
             skip_materialize = true,
             soulable = true,
@@ -115,7 +115,7 @@ SMODS.Booster {
     create_card = function(self, card, i)
         ease_background_colour(HEX("a742f5"))
         return SMODS.create_card{
-            set = "scrimbloaddition",
+            set = "normalscring",
             area = G.pack_cards,
             skip_materialize = true,
             soulable = true,
@@ -138,6 +138,7 @@ SMODS.Booster {
     key = "megascrimblopack",
     atlas = "megascrimblopackatlas",
     pos = {x = 0, y = 0},
+    config = {extra = 4, choose = 2},
     cost = 6,
     weight = 0.33,
     select_card = "jokers",

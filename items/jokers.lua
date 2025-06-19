@@ -11,17 +11,9 @@ SMODS.Joker {
     atlas = "gcatlas",
     pos = {x = 0, y = 0},
     config = {extra = {dollars = 10}},
-    loc_txt = {
-        name = "Robloxian",
-        text = {
-            "Earn {C:money}$#1#{}",
-            "when {C:dark_edition}Foil{}",
-            "card or joker is triggered.",
-        }
-    },
     rarity = 4,
     cost = 20,
-    pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
+    pools = {["gcmember"] = true, ["scrimbloaddition"] = true, },
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -55,15 +47,6 @@ SMODS.Joker {
     atlas = "gcatlas",
     pos = {x = 1, y = 0},
     config = {extra = {Xmultamt = 0.25, Xmult = 1}},
-    loc_txt = {
-        name = "some guy",
-        text = {
-            "Gains {X:mult,C:white}X#1#{} Mult",
-            "whenever a {C:dark_edition}Holographic{}",
-            "card or joker is triggered.",
-            "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
-        }
-    },
     rarity = 4,
     cost = 20,
     pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
@@ -109,15 +92,6 @@ SMODS.Joker {
     atlas = "gcatlas",
     pos = {x = 2, y = 0},
     config = {extra = {chips = 200, Xchips = 3, odds = 2, Xodds = 6}},
-    loc_txt = {
-        name = "zombieman6475",
-        text = {
-            "When a {C:dark_edition}Polychrome{}",
-            "card or joker triggers,",
-            "{C:green}#3# in #4#{} chance for {C:chips}+#1#{} Chips",
-            "{C:green}#3# in #5#{} chance for {X:chips,C:white}X#2#{} Chips"
-        }
-    },
     rarity = 4,
     cost = 20,
     pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
@@ -181,14 +155,6 @@ SMODS.Joker {
     rarity = 4,
     cost = 20,
     pools = {["gcmember"] = true, ["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "{C:dark_edition,E:2}scrimblo bingus{}",
-        text  ={
-            "{C:attention}Retrigger{} all {C:dark_edition}Negative{}",
-            "cards and jokers.",
-            "{C:inactive,s:0.8}the one and only{}"
-        }
-    },
     calculate = function(self, card, context)
         if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
             if context.other_card.edition and context.other_card.edition.negative == true then
@@ -232,13 +198,7 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "sel fone",
-        text = {
-            "Earn {C:money}$#1#{} whenever a {C:cry_code}Code{} card is used."
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.dollars}}
     end,
@@ -272,15 +232,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "Onyx",
-        text = {
-            "Create a {C:dark_edition}Negative Tag{}",
-            "when {C:attention}Blind{} is selected.",
-            "{X:mult,C:white}X#1#{} Mult"
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
 
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.Xmult}}
@@ -323,22 +275,13 @@ SMODS.Joker {
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
     config = {extra = {Echips = 87, Emult = 87, dollars = 87}},
-    unlocked = true,
+    unlocked = false,
     discovered = false,
-    rarity = "cry_exotic",
+    rarity = "scring_special",
     cost = 87,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "{C:edition,e:1}zazu{}",
-        text = {
-            "{X:dark_edition,C:white}^#1#{} Chips",
-            "{X:dark_edition,C:white}^#2#{} Mult",
-            "Earn {C:money}$#3#{} at end of round"
-        }
-    },
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.Echips, center.ability.extra.Emult, center.ability.extra.dollars}}
     end,
@@ -377,15 +320,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "Drive Thru Speaker",
-        text = {
-            "{X:mult,C:white}X#1#{} Mult if hand contains a",
-            "6 and a 7",
-            '{C:inactive,s:0.8}isnt it your bedtime, {}{C:attention,s:0.8}Unc?{}'
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.Xmult}}
     end,
@@ -432,14 +367,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "Dr. House",
-        text = {
-            "Create a random {C:attention}Consumable{}",
-            "if played poker hand is a {C:attention}Full House{}"
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
 
     calculate = function(self, card, context)
         if context.joker_main and next(context.poker_hands[card.ability.extra.type]) then
@@ -476,15 +404,7 @@ SMODS.Joker {
     blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = false,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "The Mask",
-        text = {
-            "{C:attention}+#1#{} Joker slots",
-            "{C:green}#2# in #3#{} chance of {C:attention}crashing{}",
-            "the game when blind is selected."
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.joker_slots, G.GAME.probabilities.normal, center.ability.extra.odds}}
     end,
@@ -527,14 +447,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    pools = {["scrimbloaddition"] = true},
-    loc_txt = {
-        name = "Anton Ego",
-        text = {
-            "{C:attention}Retigger{} all played cards",
-            "{C:attention}#1#{} time(s)"
-        }
-    },
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
 
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.repetitions}}
@@ -549,4 +462,138 @@ SMODS.Joker {
             }
         end
     end
+}
+
+SMODS.Atlas {
+    key = "steamatlas",
+    path = "steam.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "steamhappy",
+    name = "steamhappy",
+    atlas = "steamatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {Xchips = 2.5}},
+    unlocked = true,
+    rarity = "cry_epic",
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Xchips}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if (context.other_card:get_id() <= 10 and context.other_card:get_id() >= 0 and context.other_card:get_id() % 2 == 1) or (context.other_card:get_id() == 14) then
+                return {
+                    message = ":steamhappy:",
+                    Xchips_mod = card.ability.extra.Xchips
+                }
+            end
+             
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "steamsad",
+    name = "steamsad",
+    atlas = "steamatlas",
+    pos = {x = 1, y = 0},
+    config = {extra = {Xmult = 1.5}},
+    unlocked = true,
+    rarity = "cry_epic",
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+
+
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.Xmult}}
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:get_id() <= 10 and context.other_card:get_id() >= 0 and context.other_card:get_id() % 2 == 0 then
+                return {
+                    message = ":steamsad:",
+                    Xmult_mod = card.ability.extra.Xmult
+                }
+            end
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "chanceatlas",
+    path = "chance.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Sound {
+    key = "jackpot",
+    path = "jackpot.ogg"
+}
+
+SMODS.Joker {
+    key = "chance",
+    name = "chance",
+    atlas = "chanceatlas",
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 0},
+    config = {extra = {charges = 0, dollars = 8}},
+    unlocked = true,
+    rarity = 4,
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
+    cost = 17,
+    blueprint_compat = false,
+    eternal_compat = true,
+    perishable_compat = true,
+
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.charges, center.ability.extra.dollars}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.setting_blind and not context.blueprint then
+            G.E_MANAGER:add_event(Event({
+                func = function ()
+                    SMODS.add_card{set="Tarot",key="c_wheel_of_fortune",edition="e_negative"}
+                    return true
+                end
+            }))
+        end
+
+        if context.consumeable and context.consumeable.ability.name == "The Wheel of Fortune" and not context.consumeable.cry_wheel_success then
+            card.ability.extra.charges = card.ability.extra.charges + 1
+            return {
+                message = "+1 Charge"
+            }
+        elseif context.consumeable and context.consumeable.ability.name == "The Wheel of Fortune" and context.consumeable.cry_wheel_success then
+            if card.ability.extra.charges == 0 then
+                return {
+                    message = "womp womp"
+                }
+            elseif card.ability.extra.charges > 0 then
+                return {
+                    message = "JACKPOT!",
+                    dollars = card.ability.extra.dollars * card.ability.extra.charges,
+                    sound = "scring_jackpot",
+                    func = function()
+                        card.ability.extra.charges = 0
+                    end
+                }
+            end
+        end
+    end,
 }
