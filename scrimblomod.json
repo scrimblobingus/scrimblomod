@@ -19,9 +19,7 @@
 	], 
 	"conflicts": [
 		"Yahimod",
-		"Saturn",
-		"FusionJokers (<1.0.0~BETA-00521a)",
-		"CardSleeves (<1.7.8)"
+		"Saturn"
 	], 
 	"provides": [
 		
