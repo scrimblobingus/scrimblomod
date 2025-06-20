@@ -275,6 +275,7 @@ SMODS.Joker {
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
     config = {extra = {Echips = 87, Emult = 87, dollars = 87}},
+    -- pools = {["scrimbloaddition"] = true},
     unlocked = false,
     discovered = false,
     rarity = "scring_special",
@@ -290,7 +291,7 @@ SMODS.Joker {
         if context.joker_main then
             return {
                 message = "melon",
-                Echips_mod = card.ability.extra.Echips,
+                echips = card.ability.extra.Echips,
                 Emult_mod = card.ability.extra.Emult
             }
         end

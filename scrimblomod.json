@@ -3,23 +3,25 @@
 	"id": "scrimblomod", 
 	"name": "scrimblo mod", 
 	"author": ["scrimblo bingus"], 
-	"description": "silly things for cryptid", 
+	"description": "a cryptid addon that adds various inside jokes.", 
 	"prefix": "scring", 
 	"main_file": "scrimblomod.lua",
 	"priority": 0, 
 	"badge_colour": "6800B3", 
 	"badge_text_colour": "FF009D", 
 	"display_name": "scrimblo mod", 
-	"version": "1.0.1", 
+	"version": "1.5.0", 
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0525b)", 
+		"Steamodded (>=1.0.0~BETA-0614a)",
 		"Lovely (>=0.8)", 
-		"Cryptid (>=0.5.8)",
+		"Cryptid (>=0.5.9)",
 		"Talisman (>=2.2.0a)"
 	], 
 	"conflicts": [
 		"Yahimod",
-		"Saturn"
+		"Saturn",
+		"FusionJokers (<1.0.0~BETA-00521a)",
+		"CardSleeves (<1.7.8)"
 	], 
 	"provides": [
 		

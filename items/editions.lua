@@ -3,14 +3,20 @@ SMODS.Shader {
     path = "superhd.fs"
 }
 
+SMODS.Sound {
+    key = "choir",
+    path = "choir.ogg"
+}
+
 SMODS.Edition {
     key = "superultrafuckinghd",
     shader = "superultrafuckinghd",
     atlas = "foneatlas",
     pos = {x = 0, y = 0},
     config = {e_chips = 87, e_mult = 87, p_dollars = 87},
-    in_shop = false,
-    weight = 3,
+    in_shop = true,
+    weight = 0.000087,
+    sound = {sound = "scring_choir", per = 1.2, vol = 0.4},
     extra_cost = 87,
     apply_to_float = false,
     badge_colour = G.C.EDITION,
