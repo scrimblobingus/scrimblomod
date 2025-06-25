@@ -47,11 +47,11 @@ Stopgap - better saving system
 
 ## Mods that might not work due to complexity (i might add compatibility if something doesnt work)
 
-POLTERWORX - bc it's polterworx, if ykyk
+POLTERWORX - bc it's fucking dead also it's buggy
 
 ## Conflicts
 
 Yahimod - unfortunately does not support talisman :( 
 
-Saturn - cryptid doesnt support it so neither do we?? idk gng :wilted-rose:
+Saturn - cryptid doesnt support it so neither do we?? idk gng :wilted_rose:
 
