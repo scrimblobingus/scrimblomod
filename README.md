@@ -53,5 +53,5 @@ POLTERWORX - bc it's fucking dead also it's buggy
 
 Yahimod - unfortunately does not support talisman :( 
 
-Saturn - cryptid doesnt support it so neither do we?? idk gng :wilted_rose:
+Saturn - cryptid doesnt support it so neither do we?? idk gng 🥀
 
