@@ -44,3 +44,6 @@ assert(SMODS.load_file("items/sleeves.lua"))()
 assert(SMODS.load_file("items/packs.lua"))()
 assert(SMODS.load_file("items/fusions.lua"))()
 assert(SMODS.load_file("items/editions.lua"))()
+if JokerDisplay then
+  assert(SMODS.load_file("display_definitions.lua"))
+end

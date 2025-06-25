@@ -95,6 +95,7 @@ SMODS.Consumable {
                 play_sound("timpani")
                 card:juice_up(0.3, 0.5)
                 ease_dollars(card.ability.extra.dollars, true)
+                return true
             end
         }))
         delay(0.6)

@@ -42,6 +42,9 @@ Nopeus - replaces morespeeds. allows up to speed 128!
 
 Trance - color :3 
 
+Stopgap - better saving system 
+
+
 ## Mods that might not work due to complexity (i might add compatibility if something doesnt work)
 
 POLTERWORX - bc it's polterworx, if ykyk

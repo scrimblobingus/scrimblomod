@@ -1,3 +1,4 @@
+// copied from the late POLTERWORX. rest in peace
 #if defined(VERTEX) || __VERSION__ > 100 || defined(GL_FRAGMENT_PRECISION_HIGH)
 	#define MY_HIGHP_OR_MEDIUMP highp
 #else

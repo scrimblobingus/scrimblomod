@@ -226,17 +226,13 @@ SMODS.Joker {
     atlas = "onyxatlas",
     pos = {x = 0, y = 0},
     unlocked = true,
-    rarity = "cry_epic",
+    rarity = 4,
     cost = 12,
-    config = {extra = {Xmult = 0.75}},
+    config = {},
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
     pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
-
-    loc_vars = function(self, info_queue, center)
-        return {vars = {center.ability.extra.Xmult}}
-    end,
 
     calculate = function(self, card, context)
         if context.setting_blind then
@@ -249,13 +245,6 @@ SMODS.Joker {
             }))
             return {
                 message = "A gift."
-            }
-        end
-
-        if context.joker_main then
-            return {
-                message = "An ailment.",
-                Xmult_mod = card.ability.extra.Xmult
             }
         end
     end
@@ -520,7 +509,7 @@ SMODS.Joker {
     soul_pos = {x = 1, y = 0},
     config = {extra = {charges = 0, dollars = 8}},
     unlocked = true,
-    rarity = 4,
+    rarity = 3,
     pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
     cost = 17,
     blueprint_compat = false,
@@ -563,4 +552,119 @@ SMODS.Joker {
             end
         end
     end,
+}
+
+SMODS.Atlas {
+    key = "tripmineatlas",
+    path = "tripmine.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "tripmine",
+    atlas = "tripmineatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {rounds = 5}},
+    unlocked = true,
+    rarity = "scring_special",
+    cost = 0,
+    blueprint_compat = false,
+    eternal_compat = false,
+    perishable_compat = false,
+
+    loc_vars = function (self, info_queue, center)
+        return {vars = {center.ability.extra.rounds}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if card.ability.extra.rounds ~= 0 then
+                card.ability.extra.rounds = card.ability.extra.rounds - 1
+            elseif card.ability.extra.rounds == 0 then
+                for i = 1, #G.jokers.cards do
+                    if G.jokers.cards[i] == card then
+                        if i > 1 then
+                            G.jokers.cards[i - 1]:set_edition({ scring_subspaced = true })
+                        end
+                        if i < #G.jokers.cards then
+                            G.jokers.cards[i + 1]:set_edition({ scring_subspaced = true })
+                        end
+                    end
+                end
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        play_sound('tarot1')
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                card:start_dissolve()
+                                return true
+                            end
+                            
+                        }))
+                        return true
+                    end
+                }))
+            end
+        end
+        if context.selling_self then
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then
+                    if i > 1 then
+                        G.jokers.cards[i - 1]:set_edition({ scring_subspaced = true })
+                    end
+                    if i < #G.jokers.cards then
+                        G.jokers.cards[i + 1]:set_edition({ scring_subspaced = true })
+                    end
+                end
+            end
+        end
+    end
+}
+
+SMODS.Atlas {
+    key = "subatlas",
+    path = "subspace.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "subspace",
+    atlas = "subatlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {odds = 8}},
+    unlocked = true,
+    rarity = "cry_epic",
+    cost = 8,
+    blueprint_compat = false,
+    eternal_compat = true,
+    perishable_compat = true,
+
+    loc_vars  = function (self, info_queue, center)
+        return {vars = {center.ability.extra.odds, G.GAME.probabilities.normal}}
+    end,
+
+    calculate = function (self, card, context)
+        -- ik it says pity prize shut up im tired 
+        if context.skip_blind and not context.blueprint then
+            local tag_key
+            repeat
+                tag_key = get_next_tag_key("cry_pity_prize")
+			until tag_key ~= "tag_boss"
+            local ts = Tag(tag_key)
+            if pseudorandom("subspace") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                ts.ability.shiny = true
+            end
+            add_tag(ts)
+        end
+        if context.setting_blind and not context.blueprint and not context.blind.boss then
+            G.E_MANAGER:add_event(Event({
+                func = function ()
+                    SMODS.add_card{set="Jokers",area=G.jokers,key="j_scring_tripmine"}
+                    return true
+                end
+            }))
+        end
+    end
 }

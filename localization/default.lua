@@ -45,8 +45,7 @@ return {
                 name = "Onyx",
                 text = {
                     "Create a {C:dark_edition}Negative Tag{}",
-                    "when {C:attention}Blind{} is selected.",
-                    "{X:mult,C:white}X#1#{} Mult"
+                    "when {C:attention}Blind{} is selected."
                 }
             },
             j_scring_zazu = {
@@ -122,6 +121,24 @@ return {
                     "When {C:tarot}Wheel of Fortune{} {C:attention}DOES{} trigger, ",
                     "earn {C:money}$#2#{} for every {C:gold}Charge{}, then reset all charges.",
                     "{C:inactive}Currently #1# Charge(s){}"
+                }
+            },
+            j_scring_tripmine = {
+                name = "Subspace Tripmine",
+                text = {
+                    "In {C:attention}#1#{} round(s) or when sold, ",
+                    "{C:attention}destroy{} this and add {C:hearts}Subspaced{} ",
+                    "to adjacent jokers"
+                }
+            },
+            j_scring_subspace = {
+                name = "Subspace T. Mine",
+                text = {
+                    "When Blind is skipped, ",
+                    "create an extra tag",
+                    "When Small or Big Blind is selected, ",
+                    "create a {C:hearts}Subspace Tripmine{}",
+                    "{C:inactive}#2# in #1# chance for tag to be{} {C:gold}Shiny{}"
                 }
             }
         },
