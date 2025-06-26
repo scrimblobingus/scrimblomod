@@ -140,6 +140,38 @@ return {
                     "create a {C:hearts}Subspace Tripmine{}",
                     "{C:inactive}#2# in #1# chance for tag to be{} {C:gold}Shiny{}"
                 }
+            },
+            j_scring_job = {
+                name = "{C:red}JOB APPLICATION{}",
+                text = {
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                }
+            },
+            j_scring_job2 = {
+                name = "{C:red}JOB APPLICATION{}",
+                text = {
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                    "{C:red}GET A JOB{} ",
+                }
             }
         },
         Sleeve = {

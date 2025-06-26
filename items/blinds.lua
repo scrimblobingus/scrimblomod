@@ -30,3 +30,35 @@ SMODS.Blind {
         end
     end
 }
+
+SMODS.Atlas {
+    key = "scaryblind",
+    path = "scary.png",
+    px = 34,
+    py = 34,
+    frames = 1,
+    atlas_table = "ANIMATION_ATLAS"
+}
+
+SMODS.Blind {
+    key = "final_scary",
+    dollars = 1,
+    mult = 2,
+    atlas = "scaryblind",
+    pos = {y = 0},
+    loc_txt = {
+        name = "Dark Despair",
+        text = {
+            "Writhe in despair."
+        }
+    },
+    boss = {showdown = true},
+    boss_colour = HEX("000000"),
+
+    set_blind = function (self)
+        local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_scring_job")
+        card.ability.cry_absolute = true
+        card:add_to_deck()
+        G.jokers:emplace(card)
+    end
+}

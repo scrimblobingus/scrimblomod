@@ -569,6 +569,7 @@ SMODS.Joker {
     unlocked = true,
     rarity = "scring_special",
     cost = 0,
+    no_collection = true,
     blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = false,
@@ -667,4 +668,78 @@ SMODS.Joker {
             }))
         end
     end
+}
+
+SMODS.Atlas {
+    key = "jobatlas",
+    path = "job.png",
+    px = 2550,
+    py = 3301
+}
+
+SMODS.Sound {
+    key = "jumpscare",
+    path = "jumpscare.ogg"
+}
+
+SMODS.Joker {
+    key = "job",
+    atlas = "jobatlas",
+    pos = {x = 0, y = 0},
+    config = {},
+    rarity = "scring_special",
+    cost = 0,
+    blueprint_compat = false,
+    perishable_compat = false,
+    eternal_compat = true,
+    no_collection = true,
+
+    add_to_deck = function (self, card, from_debuff)
+        play_sound("scring_jumpscare", 1, 2)
+        return true
+    end,
+
+    calculate = function (self, card, context)
+        if 			( -- Compacting all the elseifs into one block for space and readability also maintablity
+					context.selling_self
+					or context.discard
+					or context.reroll_shop --Yes
+					or context.buying_card
+					or context.skip_blind
+					or context.using_consumeable
+					or context.selling_card
+                    or context.setting_blind
+					or context.skipping_booster
+					or context.open_booster
+					or context.forcetrigger
+                    or context.joker_main
+				) and not context.blueprint then
+                    local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_scring_job2")
+                    card.ability.cry_absolute = true
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                    return {
+                        message = "GET A JOB",
+                        sound = "scring_jumpscare"
+                    }
+                end
+    end
+}
+
+SMODS.Joker {
+    key = "job2",
+    atlas = "jobatlas",
+    pos = {x = 0, y = 0},
+    config = {},
+    rarity = "scring_special",
+    cost = 0,
+    blueprint_compat = false,
+    perishable_compat = false,
+    eternal_compat = true,
+    no_collection = true,
+
+    add_to_deck = function (self, card, from_debuff)
+        play_sound("scring_jumpscare", 1, 1)
+        return true
+    end,
 }
