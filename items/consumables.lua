@@ -105,3 +105,36 @@ SMODS.Consumable {
         return true
     end
 }
+
+SMODS.Atlas {
+    key = "drinkatlas",
+    path = "drink.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Consumable {
+    key = "drink",
+    set = "Spectral",
+    atlas = "drinkatlas",
+    pos = {x = 0, y = 0},
+    config = {},
+    loc_txt = {
+        name = "you will drink and drive",
+        text = {
+            "Converts every card in deck to {C:spades}Spades{}"
+        }
+    },
+    use = function (self, card, area, copier)
+        for k, v in pairs(G.playing_cards) do
+            if v.base.suit ~= 'Spades' then
+                v:change_suit('Spades')
+            end
+        end
+        
+    end,
+
+    can_use = function (self, card)
+        return true
+    end
+}

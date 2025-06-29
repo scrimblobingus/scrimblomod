@@ -53,7 +53,7 @@ SMODS.Joker {
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.Xmultamt, center.ability.extra.Xmult}}
     end,
@@ -637,6 +637,7 @@ SMODS.Joker {
     config = {extra = {odds = 8}},
     unlocked = true,
     rarity = "cry_epic",
+    pools = {["scrimbloaddition"] = true, ["normalscring"] = true},
     cost = 8,
     blueprint_compat = false,
     eternal_compat = true,
@@ -742,4 +743,38 @@ SMODS.Joker {
         play_sound("scring_jumpscare", 1, 1)
         return true
     end,
+}
+
+SMODS.Atlas {
+    key = "catlas",
+    path = "cats.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Joker {
+    key = "cats",
+    atlas = "catlas",
+    pos = {x = 0, y = 0},
+    config = {extra = {Xmult = 1.25}},
+    rarity = 2,
+    cost = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+
+    loc_vars = function (self, info_queue, center)
+        return {vars = {center.ability.extra.Xmult}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Spades") then
+                return {
+                    message = "Blueberry!",
+                    Xmult_mod = card.ability.extra.Xmult
+                }
+            end
+        end
+    end
 }

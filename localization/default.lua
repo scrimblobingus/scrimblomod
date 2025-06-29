@@ -172,6 +172,14 @@ return {
                     "{C:red}GET A JOB{} ",
                     "{C:red}GET A JOB{} ",
                 }
+            },
+            j_scring_cats = {
+                name = "cats if they were blueberries",
+                text ={
+                    "Played cards with ",
+                    "{C:spades}Spade{} suit give ",
+                    "{X:mult,C:white}X#1#{} Mult when scored"
+                }
             }
         },
         Sleeve = {
