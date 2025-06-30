@@ -1,3 +1,10 @@
+if not scrimblomod then
+	scrimblomod = {}
+end
+
+local mod_path = "" .. SMODS.current_mod.path
+scrimblomod.path = mod_path
+
 --enable optional contexts
 SMODS.current_mod.optional_features = {
   retrigger_joker = true,
@@ -35,15 +42,12 @@ SMODS.ObjectType({
 })
 
 --load files
-assert(SMODS.load_file("items/jokers.lua"))()
-assert(SMODS.load_file("items/rarities.lua"))()
-assert(SMODS.load_file("items/consumables.lua"))()
-assert(SMODS.load_file("items/blinds.lua"))()
-assert(SMODS.load_file("items/decks.lua"))()
-assert(SMODS.load_file("items/sleeves.lua"))()
-assert(SMODS.load_file("items/packs.lua"))()
-assert(SMODS.load_file("items/fusions.lua"))()
-assert(SMODS.load_file("items/editions.lua"))()
-if JokerDisplay then
-  assert(SMODS.load_file("display_definitions.lua"))
+local files = NFS.getDirectoryItems(mod_path .. "items")
+for _, file in ipairs(files) do
+	print("[scrimblo mod] loading lua file " .. file)
+	local f, err = SMODS.load_file("items/" .. file)
+	if err then
+		error(err) 
+	end
+	f()
 end
