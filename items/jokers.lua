@@ -506,7 +506,6 @@ SMODS.Joker {
     name = "chance",
     atlas = "chanceatlas",
     pos = {x = 0, y = 0},
-    soul_pos = {x = 1, y = 0},
     config = {extra = {charges = 0, dollars = 8}},
     unlocked = true,
     rarity = 3,

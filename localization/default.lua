@@ -112,7 +112,7 @@ return {
                     }
             },
             j_scring_chance = {
-                name = "Chance Plushie",
+                name = "Never Stop Gambling",
                 text = {
                     "Create a {C:dark_edition}Negative{} {C:tarot}Wheel of Fortune{}",
                     "when {C:attention}Blind{} is selected ",
