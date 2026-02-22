@@ -12,13 +12,12 @@
 	"display_name": "scrimblo mod", 
 	"version": "1.6.0", 
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0614a)",
+		"Steamodded (>=1.0.0~BETA-1224a)",
 		"Lovely (>=0.8)", 
-		"Cryptid (>=0.5.9)",
+		"Cryptid (>=0.5.14a)",
 		"Talisman (>=2.2.0a)"
 	], 
 	"conflicts": [
-		"Yahimod",
 		"Saturn"
 	], 
 	"provides": [
